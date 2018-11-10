@@ -1,14 +1,5 @@
 # -*- coding: utf-8 -*-
 # This is a problem about bit mapping.
-mapping = {
-    'I' : 1,
-    'V' : 5,
-    'X' : 10,
-    'L' : 50,
-    'C' : 100,
-    'D' : 500,
-    'M' : 1000
-}
 
 mapping = {
     '100': ['', 'C', 'CC', 'CCC', 'CD', 'D', 'DC', 'DCC', 'DCCC', 'CM'],
