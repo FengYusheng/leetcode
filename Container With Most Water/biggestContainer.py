@@ -47,7 +47,10 @@ def maxArea2(height):
     area, i, j = 0, 0, len(height)-1
     while i < j:
         area = max(area, min(height[i], height[j])*(j-i))
-
+        if height[i] <= height[j]:
+            i += 1
+        else:
+            j -= 1
 
 
     return area
@@ -56,5 +59,9 @@ def maxArea2(height):
 
 
 if __name__ == '__main__':
-    container = maxArea([1,8,6,2,5,4,8,3,7])
+    data = [1,8,6,2,5,4,8,3,7]
+    container = maxArea(data)
+    print(container)
+
+    container = maxArea2(data)
     print(container)
