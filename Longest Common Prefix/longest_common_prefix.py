@@ -36,9 +36,8 @@ def time_it(func):
 
 
 @time_it
-def lcp(strings):
-    '''This function is really ugly.'''
-
+def lcp0(strings):
+    '''This is my first idea and it's really ugly.'''
     shortest, i, j = len(strings[0]), 0, 1
     prefix = ''
 
@@ -64,6 +63,22 @@ def lcp(strings):
 
     return prefix
 
+
+@time_it
+def lcp(strings):
+    '''This looks more comfortable.'''
+    prefix, length, i = strings[0], len(strings[0]), 1
+    while i < len(strings):
+        while strings[i].find(prefix) != 0:
+            if not length:
+                break;
+
+            length -= 1
+            prefix = strings[0][:length]
+
+        i += 1
+
+    return prefix
 
 
 
