@@ -65,7 +65,7 @@ def lcp0(strings):
 
 
 @time_it
-def lcp(strings):
+def lcp1(strings):
     '''This looks more comfortable.'''
     prefix, length, i = strings[0], len(strings[0]), 1
     while i < len(strings):
@@ -75,6 +75,26 @@ def lcp(strings):
 
             length -= 1
             prefix = strings[0][:length]
+
+        i += 1
+
+    return prefix
+
+
+@time_it
+def lcp(strings):
+    '''This idea is the same to lcp0's and looks more compfortable.
+
+    Trick: 'abc'[0:0] => ''
+    '''
+    prefix, length, i, j = strings[0], len(strings[0]), 0, 1
+    while i < length:
+        j = 1
+        while j < len(strings):
+            if i >= len(strings[j]) or strings[j][i] != prefix[i]:
+                return prefix[:i]
+
+            j += 1
 
         i += 1
 
