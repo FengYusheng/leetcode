@@ -1,7 +1,13 @@
 # -*- coding: utf-8 -*-
 
 def mid(array):
-    return 0
+    lo, hi = 0, len(array)-1
+
+    # They are the same.
+    # mid = lo + int((hi-lo)/2)
+    mid = int((hi+lo)/2)
+
+    return array[mid]
 
 
 if __name__ == '__main__':
