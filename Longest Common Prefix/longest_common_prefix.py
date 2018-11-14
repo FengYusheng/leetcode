@@ -104,8 +104,35 @@ def lcp(strings):
 
 @time_it
 def lcp(strings):
-    '''Divide and Conqure. This is identity to lcp0, but the structure of the codes looks more comfortable.'''
-    return ''
+    '''
+    Divide and Conqure. This is identity to lcp0, but the structure of the codes
+    looks more comfortable.
+    '''
+    def _merge(left, right):
+        prefix = ''
+        length = min(len(left), len(right))
+        i = 0
+
+        while i < length:
+            if left[i] == right[i]:
+                prefix += left[i]
+                i += 1
+            else:
+                break
+
+        return prefix
+
+
+    def _lcp(l, r):
+        if l >= r:
+            return strings[l]
+
+        mid = int((l+r)/2)
+        left_common_prefix = _lcp(l, mid)
+        right_common_prefix = _lcp(mid+1, r)
+        return _merge(left_common_prefix, right_common_prefix)
+
+    return _lcp(0, len(strings)-1)
 
 
 
