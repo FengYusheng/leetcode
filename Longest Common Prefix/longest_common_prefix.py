@@ -82,7 +82,7 @@ def lcp1(strings):
 
 
 @time_it
-def lcp(strings):
+def lcp2(strings):
     '''This idea is the same to lcp0's and looks more compfortable.
 
     Trick: 'abc'[0:0] => ''
