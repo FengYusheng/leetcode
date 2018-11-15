@@ -103,7 +103,7 @@ def lcp2(strings):
 
 
 @time_it
-def lcp(strings):
+def lcp3(strings):
     '''
     Divide and Conqure. This is identity to lcp0, but the structure of the codes
     looks more comfortable.
@@ -133,6 +133,39 @@ def lcp(strings):
         return _merge(left_common_prefix, right_common_prefix)
 
     return _lcp(0, len(strings)-1)
+
+
+
+def lcp(strings):
+    '''
+    Binary search.
+    '''
+
+    def _isCommonPrefix(prefix):
+        for s in strings:
+            if not s.startswith(prefix):
+                return False
+
+        return True
+
+    shortest_string = strings[0]
+    for s in strings:
+        if len(shortest_string) > len(s):
+            shortest_string = s
+
+    min_length = len(shortest_string)
+    lo, hi = 0, min_length-1
+    while lo <= hi:
+        mid = int((lo+hi)/2)
+        prefix = shortest_string[0:mid+1]
+        if _isCommonPrefix(prefix):
+            lo = mid+1
+        else:
+            hi = mid-1
+
+    # In the last iteration, lo is equal to hi. That means prefix + shortest_string[lo] isn't 
+    # a common prefix.
+    return shortest_string[0:lo]
 
 
 
