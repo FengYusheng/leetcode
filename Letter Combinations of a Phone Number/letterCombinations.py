@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+# This is a problem about backtracing.
+# https://en.wikibooks.org/wiki/Algorithms/Backtracking
 import time
 import functools
 
@@ -15,6 +17,19 @@ def time_it(func):
 
 @time_it
 def letterCombinations(phone_num):
+    mapping = {
+        '0' : '',
+        '1' : '',
+        '2' : 'abc',
+        '3' : 'def',
+        '4' : 'ghi',
+        '5' : 'jkl',
+        '6' : 'mno',
+        '7' : 'pqrs',
+        '8' : 'tuv',
+        '9' : 'wxyz'
+    }
+
     return []
 
 
