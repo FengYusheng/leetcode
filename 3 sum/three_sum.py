@@ -15,7 +15,7 @@ def time_it(func):
 
 
 @time_it
-def three_sum(array, target):
+def three_sum0(array, target):
     arr = sorted(array)
     ret = []
     for i in range(0, len(arr)-2):
@@ -30,6 +30,22 @@ def three_sum(array, target):
                 l += 1
             else:
                 r -= 1
+
+    return ret
+
+
+@time_it
+def three_sum(array, target):
+    ret = []
+    for i in range(0, len(array)-1):
+        t = target - array[i]
+        s = set()
+        for j in range(i+1, len(array)):
+            cur = t - array[j]
+            if cur in s:
+                ret.append(sorted([array[i], array[j], cur]))
+                continue
+            s.add(array[j])
 
     return ret
 
