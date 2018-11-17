@@ -17,7 +17,29 @@ def time_it(func):
 
 @time_it
 def threeSumClosest(array, target):
-    return []
+    arr = sorted(array)
+    ret = []
+    for i in range(0, len(arr)-2):
+        l, r = i+1, len(arr)-1
+        minDeviation = abs(target-arr[i]-arr[l]-arr[r])
+        ret = sorted([arr[i], arr[l], arr[r]])
+        while l < r:
+            s = arr[i] + arr[l] + arr[r]
+            deviation = abs(target-arr[i]-arr[l]-arr[r])
+
+            if s == target:
+                return sorted([arr[i], arr[l], arr[r]])
+
+            if minDeviation < deviation:
+                minDeviation = deviation
+                ret = sorted([arr[i], arr[l], arr[r]])
+
+            if s < target:
+                l += 1
+            else:
+                r -= 1
+
+    return ret
 
 
 
