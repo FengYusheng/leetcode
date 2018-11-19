@@ -4,7 +4,6 @@
 # https://leetcode.com/problems/letter-combinations-of-a-phone-number/discuss/8063/Python-solution
 import time
 import functools
-from collections import deque
 from copy import copy
 
 
@@ -54,7 +53,6 @@ def letterCombinations0(phone_num):
 def letterCombinations(phone_num):
     ret = []
     temp = []
-    queue = deque()
 
     if len(phone_num) == 0:
         ret = []
@@ -63,12 +61,12 @@ def letterCombinations(phone_num):
     elif len(phone_num) > 1:
         for i in phone_num:
             temp = copy(ret)
-            ret = []
-            if len(temp):
+            if len(temp) and len(mapping[i]):
+                ret = []
                 for t in temp:
                     for j in mapping[i]:
                         ret.append(t+j)
-            else:
+            elif not len(temp):
                 ret = list(mapping[i])
 
     return ret
@@ -80,3 +78,4 @@ if __name__ == '__main__':
     expected = ['ad', 'ae', 'af', 'bd', 'be', 'bf', 'cd', 'ce', 'cf']
     actual = letterCombinations(phone_num)
     assert expected == actual, '{0} is expected, but the actual result is {1}'.format(expected, actual)
+    print(letterCombinations('3415'))
