@@ -51,6 +51,7 @@ def letterCombinations0(phone_num):
 
 @time_it
 def letterCombinations(phone_num):
+    '''This is a really bad and ugly implementation.'''
     ret = []
     temp = []
 
@@ -78,4 +79,3 @@ if __name__ == '__main__':
     expected = ['ad', 'ae', 'af', 'bd', 'be', 'bf', 'cd', 'ce', 'cf']
     actual = letterCombinations(phone_num)
     assert expected == actual, '{0} is expected, but the actual result is {1}'.format(expected, actual)
-    print(letterCombinations('3415'))
