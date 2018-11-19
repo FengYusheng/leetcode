@@ -5,6 +5,7 @@
 import time
 import functools
 from collections import deque
+from copy import copy
 
 
 def time_it(func):
@@ -34,7 +35,7 @@ mapping = {
 
 
 @time_it
-def letterCombinations(phone_num):
+def letterCombinations0(phone_num):
     ret = []
 
     if len(phone_num) == 0:
@@ -47,6 +48,31 @@ def letterCombinations(phone_num):
         ret = [i+j for i in prev for j in mapping[phone_num[-1]]]
 
     return ret
+
+
+@time_it
+def letterCombinations(phone_num):
+    ret = []
+    temp = []
+    queue = deque()
+
+    if len(phone_num) == 0:
+        ret = []
+    elif len(phone_num) == 1:
+        ret = [i for i in mapping[phone_num[0]]]
+    elif len(phone_num) > 1:
+        for i in phone_num:
+            temp = copy(ret)
+            ret = []
+            if len(temp):
+                for t in temp:
+                    for j in mapping[i]:
+                        ret.append(t+j)
+            else:
+                ret = list(mapping[i])
+
+    return ret
+
 
 
 if __name__ == '__main__':
