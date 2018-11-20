@@ -16,9 +16,27 @@ def time_it(func):
     return decorater
 
 
-
+@time_it
 def fourSum(array, target):
-    return []
+    arr = sorted(array)
+    length = len(array)
+    ret = []
+
+    for i in range(0, length-2):
+        for j in range(i+1, length-1):
+            t = target - arr[i] - arr[j]
+            l, r = j+1, length-1
+            while l < r:
+                if t == arr[l] + arr[r]:
+                    arr_ = sorted([arr[i], arr[j], arr[l], arr[r]])
+                    arr_ in ret or ret.append(sorted([arr[i], arr[j], arr[l], arr[r]]))
+                    break
+                elif t < arr[l] + arr[r]:
+                    r -= 1
+                else:
+                    l += 1
+
+    return ret
 
 
 
