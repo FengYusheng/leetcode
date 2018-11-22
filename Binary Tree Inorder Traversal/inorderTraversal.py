@@ -14,6 +14,24 @@ def time_it(func):
     return decorator
 
 
+class TreeNode:
+    def __init__(self, val):
+        self.val = val
+        self.left = None
+        self.right = None
+
+
+class Tree:
+    def __init__(self, values):
+        pass
+
+
+    @classmethod
+    def buildTree(cls, values):
+        pass
+
+
+
 @time_it
 def inorderTraversal(root):
     '''
