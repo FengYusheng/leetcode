@@ -3,6 +3,7 @@
 # https://en.wikipedia.org/wiki/Subset_sum_problem
 import time
 import functools
+from collections import namedtuple
 
 
 def time_it(func):
@@ -36,6 +37,31 @@ def fourSum(array, target):
                 else:
                     l += 1
 
+    return ret
+
+
+@time_it
+def fourSum0(array, target):
+    '''This is an invalid implementation. It's hard to avoid duplicate numbers.'''
+    ret = []
+    sum_tuples = []
+    sumTuple = namedtuple('sumTuple', 'x, y, sum')
+    length = len(array)
+
+    for i in range(0, length-1):
+        for j in range(i+1, length):
+            sum_tuples.append(sumTuple(x=array[i], y=array[j], sum=array[i]+array[j]))
+
+    sum_tuples = sorted(sum_tuples, key=lambda s : s.sum)
+    length = len(sum_tuples)
+    for i in range(length-1):
+        for j in range(i+1, length):
+            if sum_tuples[i].sum + sum_tuples[j].sum == target:
+                t = sorted([sum_tuples[i].x, sum_tuples[i].y, sum_tuples[j].x, sum_tuples[j].y])
+                t in ret or ret.append(t)
+                break
+
+    print(ret)
     return ret
 
 
