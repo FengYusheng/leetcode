@@ -13,6 +13,21 @@ class TestBinaryTree(unittest.TestCase):
         self.assertRaises(TypeError, BinaryTree, root)
 
 
+    def test_build_binary_tree_from_tree_nodes(self):
+        nodes = [TreeNode(i) for i  in range(5)]
+        self.assertIsInstance(BinaryTree.buildTreeFromTreeNodes(nodes), BinaryTree)
+
+
+    def test_raise_exception_when_fail_build_binary_tree_from_tree_nodes(self):
+        self.assertRaises(TypeError, BinaryTree.buildTreeFromTreeNodes, 0x00)
+
+
+    def test_insert_Tree_Node_Into_Binary_Tree(self):
+        root = TreeNode(0)
+        leaves = [TreeNode(i) for i in range(1, 4)]
+        tree = BinaryTree(root)
+
+
 
 if __name__ == '__main__':
     unittest.main()

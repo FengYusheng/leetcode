@@ -16,7 +16,12 @@ class BinaryTree:
 
 
     @classmethod
-    def buildTree(cls, values):
+    def buildTreeFromTreeNodes(cls, nodes):
+        node_iterator = iter(nodes)
+        return cls(next(node_iterator))
+
+
+    def insert(self, node):
         pass
 
 
