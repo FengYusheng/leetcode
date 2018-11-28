@@ -17,7 +17,7 @@ class TestBinaryTree(unittest.TestCase):
         self.assertRaises(TypeError, BinarySearchTree, root)
 
 
-    def test_build_binary_tree_from_tree_nodes(self):
+    def test_build_binary_search_tree_from_tree_nodes(self):
         nodes = [TreeNode(i) for i  in range(5)]
         tree = BinarySearchTree.buildTreeFromTreeNodes(nodes)
         self.assertIsInstance(tree, BinarySearchTree)
@@ -28,11 +28,27 @@ class TestBinaryTree(unittest.TestCase):
         self.assertRaises(TypeError, BinarySearchTree.buildTreeFromTreeNodes, 0x00)
 
 
-    def test_insert_Tree_Node_Into_Binary_Tree(self):
+    def test_insert_tree_node_into_binary_search_tree(self):
         root = TreeNode(0)
         tree = BinarySearchTree(root)
         for i in range(1, 4):
             self.assertEqual(tree.insert(TreeNode(i)), i)
+
+
+    def test_rescure_insert_tree_node_into_binary_search_tree(self):
+        root = TreeNode(0)
+        tree = BinarySearchTree(root)
+        for i in range(1, 4):
+            self.assertEqual(tree.rescureInsert(TreeNode(i)), i)
+
+
+    def test_get_length_of_a_binary_tree(self):
+        tree = BinarySearchTree(TreeNode(0))
+        self.assertEqual(len(tree), 1)
+        tree.insert(TreeNode(1))
+        tree.insert(TreeNode(2))
+        tree.insert(TreeNode(3))
+        self.assertEqual(len(tree), 4)
 
 
 

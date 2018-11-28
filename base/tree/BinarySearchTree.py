@@ -44,6 +44,10 @@ class BinarySearchTree:
             raise TypeError(TYPEERROR_FMT.format(root, type(root)))
 
 
+    def __len__(self):
+        return self.root.children + 1 if self.root else 0
+
+
     @property
     def root(self):
         return self._root
@@ -85,6 +89,21 @@ class BinarySearchTree:
                 pivot = pivot.right
 
         return self.root.children
+
+
+    def rescureInsert(self, node):
+        def _insert(pivot):
+            if pivot is None:
+                pivot = node
+            elif pivot.val >= node.val:
+                pivot.children += 1
+                _insert(pivot.left)
+            else:
+                pivot.children += 1
+                _insert(pivot.right)
+            return pivot.children
+
+        return _insert(self.root)
 
 
 
