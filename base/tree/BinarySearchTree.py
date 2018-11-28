@@ -36,7 +36,7 @@ class TreeNode:
         self._right = val
 
 
-class BinaryTree:
+class BinarySearchTree:
     def __init__(self, root):
         if isinstance(root, TreeNode):
             self.root = root
@@ -61,5 +61,5 @@ class BinaryTree:
 
 __all__ = [
     'TreeNode',
-    'BinaryTree'
+    'BinarySearchTree'
 ]
