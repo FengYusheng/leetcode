@@ -26,6 +26,7 @@ class TestBinaryTree(unittest.TestCase):
         root = TreeNode(0)
         leaves = [TreeNode(i) for i in range(1, 4)]
         tree = BinaryTree(root)
+        tree.insert(leaves[0])
 
 
 
