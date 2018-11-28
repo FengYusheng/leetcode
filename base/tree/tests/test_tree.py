@@ -19,7 +19,9 @@ class TestBinaryTree(unittest.TestCase):
 
     def test_build_binary_tree_from_tree_nodes(self):
         nodes = [TreeNode(i) for i  in range(5)]
-        self.assertIsInstance(BinarySearchTree.buildTreeFromTreeNodes(nodes), BinarySearchTree)
+        tree = BinarySearchTree.buildTreeFromTreeNodes(nodes)
+        self.assertIsInstance(tree, BinarySearchTree)
+        self.assertEqual(tree.root.children, 4)
 
 
     def test_raise_exception_when_fail_build_binary_tree_from_tree_nodes(self):
@@ -28,9 +30,9 @@ class TestBinaryTree(unittest.TestCase):
 
     def test_insert_Tree_Node_Into_Binary_Tree(self):
         root = TreeNode(0)
-        leaves = [TreeNode(i) for i in range(1, 4)]
         tree = BinarySearchTree(root)
-        tree.insert(leaves[0])
+        for i in range(1, 4):
+            self.assertEqual(tree.insert(TreeNode(i)), i)
 
 
 
