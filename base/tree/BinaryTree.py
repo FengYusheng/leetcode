@@ -18,7 +18,22 @@ class TreeNode:
     @left.setter
     def left(self, val):
         if not isinstance(val, TreeNode):
-            raise TypeError(TYPEERROR_FMT.fomart(val, type(val)))
+            raise TypeError(TYPEERROR_FMT.format(val, type(val)))
+
+        self._left = val
+
+
+    @property
+    def right(self):
+        return self._right
+
+
+    @right.setter
+    def right(self, val):
+        if not isinstance(val, TreeNode):
+            raise TypeError(TYPEERROR_FMT.format(val, type(val)))
+
+        self._right = val
 
 
 class BinaryTree:
@@ -40,7 +55,7 @@ class BinaryTree:
             raise TypeError('A TreeNode object is expected.')
 
         pivot = self.root
-
+        
 
 
 
