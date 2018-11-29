@@ -106,6 +106,11 @@ class BinarySearchTree:
         return _insert(self.root)
 
 
+    @staticmethod
+    def prevOrderTraverse(tree, ret=[]):
+        ret.append(tree.root.val)
+
+
 
 __all__ = [
     'TreeNode',

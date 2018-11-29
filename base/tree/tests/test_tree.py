@@ -51,6 +51,22 @@ class TestBinaryTree(unittest.TestCase):
         self.assertEqual(len(tree), 4)
 
 
+    def test_prev_order_traversal(self):
+        data = ['S', 'E', 'X', 'A', 'R', 'C', 'H', 'M']
+        tree = BinarySearchTree(TreeNode(data[0]))
+        [tree.insert(TreeNode(i)) for i in data[1:]]
+        # map returns a iterator in Python3 instead of a list in Python2.
+        # for i in a:
+        #     print(i)
+        expected = ['A', 'C', 'E', 'H', 'M', 'R', 'S', 'X']
+        self.assertEqual(tree.prevOrderTraverse(), expected)
+
+        data = ['H', 'C', 'S', 'A', 'E', 'R', 'X']
+        expected = ['A', 'C', 'E', 'H', 'R', 'S', 'X']
+        tree = BinarySearchTree(TreeNode(data[0]))
+        [tree.insert(TreeNode(i)) for i in data[1:]]
+
+
 
 if __name__ == '__main__':
     unittest.main()
