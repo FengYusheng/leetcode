@@ -106,9 +106,15 @@ class BinarySearchTree:
         return _insert(self.root)
 
 
-    @staticmethod
-    def prevOrderTraverse(tree, ret=[]):
-        ret.append(tree.root.val)
+    def prevOrderTraverse(self):
+        def _prevOrderTraverse(root,ret=[]):
+            if root:
+                ret.append(root.val)
+                _prevOrderTraverse(root.left, ret)
+                _prevOrderTraverse(root.right, ret)
+            return ret
+
+        return _prevOrderTraverse(self.root)
 
 
 

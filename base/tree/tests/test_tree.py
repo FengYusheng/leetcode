@@ -58,13 +58,14 @@ class TestBinaryTree(unittest.TestCase):
         # map returns a iterator in Python3 instead of a list in Python2.
         # for i in a:
         #     print(i)
-        expected = ['A', 'C', 'E', 'H', 'M', 'R', 'S', 'X']
+        expected = ['S', 'E', 'A', 'C', 'R', 'H', 'M', 'X']
         self.assertEqual(tree.prevOrderTraverse(), expected)
 
         data = ['H', 'C', 'S', 'A', 'E', 'R', 'X']
-        expected = ['A', 'C', 'E', 'H', 'R', 'S', 'X']
+        expected = ['H', 'C', 'A', 'E', 'S', 'R', 'X']
         tree = BinarySearchTree(TreeNode(data[0]))
         [tree.insert(TreeNode(i)) for i in data[1:]]
+        self.assertEqual(tree.prevOrderTraverse(), expected)
 
 
 
