@@ -143,8 +143,19 @@ class BinarySearchTree:
 
     def inOrderTraverseInLoop(self):
         ret = []
-        
-
+        aux = set()
+        stack = deque()
+        stack.append(self.root)
+        while len(stack):
+            pivot = stack.pop()
+            if pivot.right and pivot.right not in stack:
+                stack.append(pivot.right)
+            if pivot.left and pivot.left not in aux:
+                stack.append(pivot)
+                stack.append(pivot.left)
+            if pivot.left is None or pivot.left in aux:
+                ret.append(pivot.val)
+                aux.add(pivot)
         return ret
 
 
