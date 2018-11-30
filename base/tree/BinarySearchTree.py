@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from collections import deque
 
 TYPEERROR_FMT = 'A TreeNode object is epxtected, but the argument {0} is {1}'
 
@@ -116,6 +117,35 @@ class BinarySearchTree:
 
         return _prevOrderTraverse(self.root)
 
+
+    def prevOrderTraverseInLoop(self):
+        ret = []
+        stack = deque()
+        stack.append(self.root)
+        while len(stack):
+            pivot = stack.pop()
+            ret.append(pivot.val)
+            # Push the right node first, then push the left node.
+            pivot.right and stack.append(pivot.right)
+            pivot.left and stack.append(pivot.left)
+        return ret
+
+
+    def inOrderTraverse(self):
+        def _inOrderTraverse(root, ret=[]):
+            if root:
+                _inOrderTraverse(root.left)
+                ret.append(root.val)
+                _inOrderTraverse(root.right)
+            return ret
+        return _inOrderTraverse(self.root)
+
+
+    def inOrderTraverseInLoop(self):
+        ret = []
+        
+
+        return ret
 
 
 __all__ = [

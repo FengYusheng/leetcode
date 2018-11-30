@@ -60,12 +60,30 @@ class TestBinaryTree(unittest.TestCase):
         #     print(i)
         expected = ['S', 'E', 'A', 'C', 'R', 'H', 'M', 'X']
         self.assertEqual(tree.prevOrderTraverse(), expected)
+        self.assertEqual(tree.prevOrderTraverseInLoop(), expected)
 
         data = ['H', 'C', 'S', 'A', 'E', 'R', 'X']
         expected = ['H', 'C', 'A', 'E', 'S', 'R', 'X']
         tree = BinarySearchTree(TreeNode(data[0]))
         [tree.insert(TreeNode(i)) for i in data[1:]]
         self.assertEqual(tree.prevOrderTraverse(), expected)
+        self.assertEqual(tree.prevOrderTraverseInLoop(), expected)
+
+
+    def test_in_order_traversal(self):
+        data = ['S', 'E', 'X', 'A', 'R', 'C', 'H', 'M']
+        tree = BinarySearchTree(TreeNode(data[0]))
+        [tree.insert(TreeNode(i)) for i in data[1:]]
+        expected = ['A', 'C', 'E', 'H', 'M', 'R', 'S', 'X']
+        self.assertEqual(tree.inOrderTraverse(), expected)
+        self.assertEqual(tree.inOrderTraverseInLoop(), expected)
+
+        data = ['H', 'C', 'S', 'A', 'E', 'R', 'X']
+        expected = ['A', 'C', 'E', 'H', 'R', 'S', 'X']
+        tree = BinarySearchTree(TreeNode(data[0]))
+        [tree.insert(TreeNode(i)) for i in data[1:]]
+        self.assertEqual(tree.inOrderTraverse(), expected)
+        self.assertEqual(tree.inOrderTraverseInLoop(), expected)
 
 
 
