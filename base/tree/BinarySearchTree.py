@@ -159,6 +159,21 @@ class BinarySearchTree:
         return ret
 
 
+    def postOrderTraverse(self):
+        def _postOrderTraverse(root, ret=[]):
+            if root:
+                _postOrderTraverse(root.left)
+                _postOrderTraverse(root.right)
+                ret.append(root.val)
+            return ret
+        return _postOrderTraverse(self.root)
+
+
+    def postOrderTraverseInLoop(self):
+        ret = []
+        return ret
+
+
 __all__ = [
     'TreeNode',
     'BinarySearchTree'

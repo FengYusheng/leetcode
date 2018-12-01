@@ -86,6 +86,20 @@ class TestBinaryTree(unittest.TestCase):
         self.assertEqual(tree.inOrderTraverseInLoop(), expected)
 
 
+    def test_post_order_traversal(self):
+        data = ['S', 'E', 'X', 'A', 'R', 'C', 'H', 'M']
+        tree = BinarySearchTree(TreeNode(data[0]))
+        [tree.insert(TreeNode(i)) for i in data[1:]]
+        expected = ['C', 'A', 'M', 'H', 'R', 'E', 'X', 'S']
+        self.assertEqual(tree.postOrderTraverse(), expected)
+
+        data = ['H', 'C', 'S', 'A', 'E', 'R', 'X']
+        expected = ['A', 'E', 'C', 'R', 'X', 'S', 'H']
+        tree = BinarySearchTree(TreeNode(data[0]))
+        [tree.insert(TreeNode(i)) for i in data[1:]]
+        self.assertEqual(tree.postOrderTraverse(), expected)
+
+
 
 if __name__ == '__main__':
     unittest.main()
