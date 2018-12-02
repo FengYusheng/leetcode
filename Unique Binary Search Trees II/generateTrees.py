@@ -24,8 +24,11 @@ def time_it(func):
 
 def sequenceGenerate(num, start=1, ret=[]):
     sequence = ['-'] + [i for i in range(start, num+1)]
-    print(sequence)
-    return []
+    ret = []
+    if num < start:
+        return ret
+    
+    return ret
 
 
 @time_it
