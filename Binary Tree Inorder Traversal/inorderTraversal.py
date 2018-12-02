@@ -20,7 +20,8 @@ def inorderTraversal(root):
     :type root: TreeNode
     :rtype: List[int]
     '''
-    return []
+    ret []
+    return ret
 
 
 if __name__ == '__main__':

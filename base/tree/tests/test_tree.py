@@ -92,12 +92,14 @@ class TestBinaryTree(unittest.TestCase):
         [tree.insert(TreeNode(i)) for i in data[1:]]
         expected = ['C', 'A', 'M', 'H', 'R', 'E', 'X', 'S']
         self.assertEqual(tree.postOrderTraverse(), expected)
+        self.assertEqual(tree.postOrderTraverseInLoop(), expected)
 
         data = ['H', 'C', 'S', 'A', 'E', 'R', 'X']
         expected = ['A', 'E', 'C', 'R', 'X', 'S', 'H']
         tree = BinarySearchTree(TreeNode(data[0]))
         [tree.insert(TreeNode(i)) for i in data[1:]]
         self.assertEqual(tree.postOrderTraverse(), expected)
+        self.assertEqual(tree.postOrderTraverseInLoop(), expected)
 
 
 
