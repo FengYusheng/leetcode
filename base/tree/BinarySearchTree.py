@@ -11,6 +11,10 @@ class TreeNode:
         self._right = None
 
 
+    def __len__(self):
+        return self.children + 1
+
+
     @property
     def left(self):
         return self._left
@@ -188,6 +192,19 @@ class BinarySearchTree:
                 ret.append(pivot.val)
                 aux.add(pivot)
         return ret
+
+
+    def bft(self):
+        ret = []
+        queue = deque()
+        queue.append(self.root)
+        while len(queue):
+            pivot = queue.popleft()
+            pivot.left and queue.append(pivot.left)
+            pivot.right and queue.append(pivot.right)
+            ret.append(pivot.val)
+        return ret
+
 
 
 __all__ = [
