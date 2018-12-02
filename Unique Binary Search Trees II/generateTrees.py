@@ -22,6 +22,12 @@ def time_it(func):
     return decorator
 
 
+def sequenceGenerate(num, start=1, ret=[]):
+    sequence = ['-'] + [i for i in range(start, num+1)]
+    print(sequence)
+    return []
+
+
 @time_it
 def generateTrees(num):
     return []
@@ -29,4 +35,23 @@ def generateTrees(num):
 
 
 if __name__ == '__main__':
-    print('hhh')
+    num = 3
+    # actual = generateTrees()
+    # expected = [
+    #     [1, 3, 2],
+    #     [3, 2, 1],
+    #     [3, 1, 2],
+    #     [2, 1, 3],
+    #     [1, 2, 3]
+    # ]
+    # assert len(actual) == len(expected)
+    # for i in actual:
+    #     assert i in expected
+
+    # Let's think about it from the simplest case
+    seq = [1,2]
+    actual = sequenceGenerate(2)
+    expected = [[1,2], [2,1]]
+    seq = [1, 2, 3]
+    actual = sequenceGenerate(3)
+    expected = [[1,2,3], [1,3,2], [2,1,3], [2,3,1], [3,1,2], [3,2,1]]
