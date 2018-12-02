@@ -5,6 +5,9 @@
 
 # http://www.hawstein.com/posts/dp-novice-to-advanced.html
 
+# This is a problem about dynamic programming.
+# https://www.sohu.com/a/153858619_466939
+
 def isMatch(sequence, pattern):
     """
     1. pattern doesn't contain "*", this is the simplest case, just compare two strings.
