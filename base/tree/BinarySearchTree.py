@@ -22,7 +22,7 @@ class TreeNode:
 
     @left.setter
     def left(self, val):
-        if not isinstance(val, TreeNode):
+        if not isinstance(val, TreeNode) and val is not None:
             raise TypeError(TYPEERROR_FMT.format(val, type(val)))
 
         self._left = val
@@ -35,7 +35,7 @@ class TreeNode:
 
     @right.setter
     def right(self, val):
-        if not isinstance(val, TreeNode):
+        if not isinstance(val, TreeNode) and val is not None:
             raise TypeError(TYPEERROR_FMT.format(val, type(val)))
 
         self._right = val
