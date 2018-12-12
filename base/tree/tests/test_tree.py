@@ -125,6 +125,13 @@ class TestRedBlackBST(unittest.TestCase):
             self.assertEqual(tree.insert(TreeNodeInRedBlackBST(i)), i)
 
 
+    def test_rotate_left(self):
+        root = TreeNodeInRedBlackBST('E')
+        tree = RedBlackBST(root)
+        tree.insert(TreeNodeInRedBlackBST('S'))
+        print(tree.prevOrderTraverse())
+
+
 
 if __name__ == '__main__':
     unittest.main()

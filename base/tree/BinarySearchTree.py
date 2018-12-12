@@ -244,17 +244,37 @@ class RedBlackBST(BinarySearchTree):
 
         self._root = root
 
+    # Red link can't be in right tree, why?
+    def rotateLeft(self, node):
+        x = node.right
+        node.right = x.left
+        x.left = node
+        x.children = node.children
+        x.color = node.color
+        left_length = len(node.left) if node.left else 0
+        right_length = len(node.right) if node.right else 0
+        node.children = left_length + right_length
+        node.color = Color.RED
+        return x
 
-    def rotateLeft(self):
-        pass
 
-
-    def rotateRight(self):
-        pass
+    def rotateRight(self, node):
+        x = node.left
+        node.left = x.right
+        x.right = node
+        x.children = node.children
+        x.color = node.color
+        node.color = Color.RED
+        left_length = len(node.left) if node.left else 0
+        right_length = len(node.right) if node.right else 0
+        node.children = left_length + right_length
+        return x
 
 
     def insert(self, node):
-        return super().insert(node)
+        super().insert(node)
+
+        return self.root.children
 
 
 
