@@ -110,6 +110,21 @@ class TestBinaryTree(unittest.TestCase):
         self.assertEqual(tree.bft(), expected)
 
 
+class TestRedBlackBST(unittest.TestCase):
+    def test_create_a_red_black_bst_from_an_valid_tree_node(self):
+        root = TreeNodeInRedBlackBST(1)
+        self.assertIsInstance(RedBlackBST(root), RedBlackBST)
+        with self.assertRaises(TypeError):
+            RedBlackBST(TreeNode(1))
+
+
+    def test_insert_a_tree_node_into_a_red_black_bst(self):
+        root = TreeNodeInRedBlackBST(0)
+        tree = RedBlackBST(root)
+        for i in range(1, 4):
+            self.assertEqual(tree.insert(TreeNodeInRedBlackBST(i)), i)
+
+
 
 if __name__ == '__main__':
     unittest.main()

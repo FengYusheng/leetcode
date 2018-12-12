@@ -236,12 +236,25 @@ class BinarySearchTree:
         return ret
 
 
+
 class RedBlackBST(BinarySearchTree):
     def __init__(self, root):
         if not isinstance(root, TreeNodeInRedBlackBST):
             raise TypeError('A TreeNodeInRedBlackBST is expected.')
 
         self._root = root
+
+
+    def rotateLeft(self):
+        pass
+
+
+    def rotateRight(self):
+        pass
+
+
+    def insert(self, node):
+        return super().insert(node)
 
 
 
