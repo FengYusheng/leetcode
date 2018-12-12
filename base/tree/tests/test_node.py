@@ -34,6 +34,12 @@ class TestTreeNode(unittest.TestCase):
             node.right = 1
 
 
+class TestColorEnum(unittest.TestCase):
+    def test_color_value(self):
+        self.assertTrue(bool(Color.RED.value))
+        self.assertFalse(bool(Color.BLACK.value))
+
+
 
 if __name__ == '__main__':
     unittest.main()

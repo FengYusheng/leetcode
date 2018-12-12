@@ -1,7 +1,15 @@
 # -*- coding: utf-8 -*-
 from collections import deque
+from enum import Enum, auto
 
 TYPEERROR_FMT = 'A TreeNode object is epxtected, but the argument {0} is {1}'
+
+
+class Color(Enum):
+    BLACK = 0
+    RED = auto()
+
+
 
 class TreeNode:
     def __init__(self, val):
@@ -39,6 +47,12 @@ class TreeNode:
             raise TypeError(TYPEERROR_FMT.format(val, type(val)))
 
         self._right = val
+
+
+class TreeNodeInRedBlackTree(TreeNode):
+    def __init__(self, val):
+        super().__init__(val)
+        self._color = RED
 
 
 class BinarySearchTree:
@@ -208,6 +222,7 @@ class BinarySearchTree:
 
 
 __all__ = [
+    'Color',
     'TreeNode',
     'BinarySearchTree'
 ]
