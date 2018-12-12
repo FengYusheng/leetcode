@@ -40,7 +40,7 @@ class TestColorEnum(unittest.TestCase):
         self.assertFalse(bool(Color.BLACK.value))
 
 
-class TestRedBlackBST(unittest.TestCase):
+class TestTreeNodeInRedBlackBST(unittest.TestCase):
     def test_set_tree_node_color(self):
         node = TreeNodeInRedBlackBST(1)
         self.assertEqual(node.color, Color.RED)
