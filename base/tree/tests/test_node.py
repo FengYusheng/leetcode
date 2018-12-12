@@ -54,6 +54,10 @@ class TestRedBlackBST(unittest.TestCase):
             node.color = 'Green'
 
 
+    def test_a_tree_node_in_red_black_bst_is_red(self):
+        self.assertTrue(TreeNodeInRedBlackBST(1))
+
+
 
 if __name__ == '__main__':
     unittest.main()
