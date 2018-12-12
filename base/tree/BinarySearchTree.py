@@ -49,10 +49,23 @@ class TreeNode:
         self._right = val
 
 
-class TreeNodeInRedBlackTree(TreeNode):
+class TreeNodeInRedBlackBST(TreeNode):
     def __init__(self, val):
         super().__init__(val)
-        self._color = RED
+        self._color = Color.RED
+
+
+    @property
+    def color(self):
+        return self._color
+
+
+    @color.setter
+    def color(self, color):
+        if not isinstance(color, Color):
+            raise TypeError("A Color enum memenber is expected.")
+
+        self._color = color
 
 
 class BinarySearchTree:
@@ -223,6 +236,7 @@ class BinarySearchTree:
 
 __all__ = [
     'Color',
+    'TreeNodeInRedBlackBST',
     'TreeNode',
     'BinarySearchTree'
 ]

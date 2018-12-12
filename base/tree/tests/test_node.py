@@ -40,6 +40,20 @@ class TestColorEnum(unittest.TestCase):
         self.assertFalse(bool(Color.BLACK.value))
 
 
+class TestRedBlackBST(unittest.TestCase):
+    def test_set_tree_node_color(self):
+        node = TreeNodeInRedBlackBST(1)
+        self.assertEqual(node.color, Color.RED)
+        node.color = Color.BLACK
+        self.assertEqual(node.color, Color.BLACK)
+
+
+    def test_raise_type_error_when_assign_invalid_color(self):
+        node = TreeNodeInRedBlackBST(1)
+        with self.assertRaises(TypeError):
+            node.color = 'Green'
+
+
 
 if __name__ == '__main__':
     unittest.main()
