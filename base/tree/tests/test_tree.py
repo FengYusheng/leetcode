@@ -138,6 +138,19 @@ class TestRedBlackBST(unittest.TestCase):
         self.assertIsNone(node1.right)
 
 
+    def test_rotate_right(self):
+        node1 = TreeNodeInRedBlackBST(3)
+        node1.color = Color.BLACK
+        node2 = TreeNodeInRedBlackBST(2)
+        node1.left = node2
+        node1 = RedBlackBST.rotateRight(node1)
+        self.assertEqual(node1.val, 2)
+        self.assertEqual(node1.right.val, 3)
+        self.assertTrue(node1.color is Color.BLACK)
+        self.assertTrue(node1.right.color is Color.RED)
+        self.assertIsNone(node1.left)
+
+
 
 if __name__ == '__main__':
     unittest.main()
