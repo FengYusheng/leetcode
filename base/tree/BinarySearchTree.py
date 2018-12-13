@@ -67,10 +67,6 @@ class TreeNodeInRedBlackBST(TreeNode):
         self._color = color
 
 
-    def isRed(self):
-        return self.color is Color.RED
-
-
 class BinarySearchTree:
     def __init__(self, root):
         if isinstance(root, TreeNode):
@@ -247,6 +243,20 @@ class RedBlackBST(BinarySearchTree):
         self._root.color = Color.BLACK
 
 
+    @property
+    def root(self):
+        return self._root
+
+
+    @root.setter
+    def root(self, node):
+        if not isinstance(node, TreeNodeInRedBlackBST):
+            raise TypeError('A TreeNodeInRedBlackBST is expected')
+
+        self._root = node
+        self.root.color = Color.BLACK
+
+
     @staticmethod
     def rotateLeft(node):
         x = node.right
@@ -275,9 +285,19 @@ class RedBlackBST(BinarySearchTree):
         return x
 
 
-    def insert(self, node):
-        super().insert(node)
+    @staticmethod
+    def isRed(node):
+        if node is None or not isinstance(node, TreeNodeInRedBlackBST):
+            return False
+        return node.color is Color.RED
 
+
+    def insert(self, node):
+        # super().insert(node)
+        # We need to locate where to insert the new node by using dft. Then we
+        # must rotate every node in the RedBlackBST. So rescurion is our approach
+        # to implement this method.
+        
         return self.root.children
 
 

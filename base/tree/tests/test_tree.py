@@ -118,13 +118,6 @@ class TestRedBlackBST(unittest.TestCase):
             RedBlackBST(TreeNode(1))
 
 
-    def test_insert_a_tree_node_into_a_red_black_bst(self):
-        root = TreeNodeInRedBlackBST(0)
-        tree = RedBlackBST(root)
-        for i in range(1, 4):
-            self.assertEqual(tree.insert(TreeNodeInRedBlackBST(i)), i)
-
-
     def test_rotate_left(self):
         node1 = TreeNodeInRedBlackBST(3)
         node1.color = Color.BLACK
@@ -150,6 +143,13 @@ class TestRedBlackBST(unittest.TestCase):
         self.assertTrue(node1.right.color is Color.RED)
         self.assertIsNone(node1.left)
 
+
+    def test_insert_a_tree_node_into_a_red_black_bst(self):
+        root = TreeNodeInRedBlackBST(0)
+        tree = RedBlackBST(root)
+        self.assertTrue(tree.root.color, Color.BLACK)
+        for i in range(1, 4):
+            self.assertEqual(tree.insert(TreeNodeInRedBlackBST(i)), i)
 
 
 if __name__ == '__main__':
