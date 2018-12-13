@@ -243,9 +243,12 @@ class RedBlackBST(BinarySearchTree):
             raise TypeError('A TreeNodeInRedBlackBST is expected.')
 
         self._root = root
+        # The color of root is always black in a RedBlackBST.
+        self._root.color = Color.BLACK
 
-    # Red link can't be in right tree, why?
-    def rotateLeft(self, node):
+
+    @staticmethod
+    def rotateLeft(node):
         x = node.right
         node.right = x.left
         x.left = node
@@ -258,7 +261,8 @@ class RedBlackBST(BinarySearchTree):
         return x
 
 
-    def rotateRight(self, node):
+    @staticmethod
+    def rotateRight(node):
         x = node.left
         node.left = x.right
         x.right = node
