@@ -153,5 +153,13 @@ class TestRedBlackBST(unittest.TestCase):
         print(tree.inOrderTraverse())
 
 
+    def test_height(self):
+        root = TreeNodeInRedBlackBST('S')
+        tree = RedBlackBST(root)
+        for i in ['E', 'A', 'R', 'C', 'H', 'E', 'X', 'A', 'M', 'P', 'L', 'E']:
+            tree.insert(TreeNodeInRedBlackBST(i))
+        self.assertEqual(tree.height(tree.root), 4)
+
+
 if __name__ == '__main__':
     unittest.main()

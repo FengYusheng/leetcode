@@ -232,6 +232,17 @@ class BinarySearchTree:
         return ret
 
 
+    @staticmethod
+    def height(pivot):
+        if not pivot:
+            return 0
+
+        if not isinstance(pivot, TreeNode):
+            raise TypeError('A TreeNode object is expected.')
+
+        return 1 + max([BinarySearchTree.height(pivot.left), BinarySearchTree.height(pivot.right)])
+
+
 
 class RedBlackBST(BinarySearchTree):
     def __init__(self, root):
