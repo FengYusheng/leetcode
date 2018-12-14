@@ -340,8 +340,14 @@ class RedBlackBST(BinarySearchTree):
         return self.root.children
 
 
-    def prevOrderTraverse():
-        pass
+    def inOrderTraverse(self):
+        def _inOrderTraverse(pivot, ret=[]):
+            if pivot:
+                _inOrderTraverse(pivot.left)
+                ret.append((pivot.val, pivot.color))
+                _inOrderTraverse(pivot.right)
+            return ret
+        return _inOrderTraverse(self.root)
 
 
 
