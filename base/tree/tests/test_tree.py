@@ -145,11 +145,11 @@ class TestRedBlackBST(unittest.TestCase):
 
 
     def test_insert_a_tree_node_into_a_red_black_bst(self):
-        root = TreeNodeInRedBlackBST(0)
+        root = TreeNodeInRedBlackBST('S')
         tree = RedBlackBST(root)
-        self.assertTrue(tree.root.color, Color.BLACK)
-        for i in range(1, 4):
-            self.assertEqual(tree.insert(TreeNodeInRedBlackBST(i)), i)
+        for i in ['E', 'A', 'R', 'C', 'H', 'E', 'X', 'A', 'M', 'P', 'L', 'E']:
+            tree.insert(TreeNodeInRedBlackBST(i))
+        self.assertEqual(tree.inOrderTraverse(), ['A', 'C', 'E', 'H', 'L', 'M', 'P', 'R', 'S', 'X'])
 
 
 if __name__ == '__main__':

@@ -297,8 +297,51 @@ class RedBlackBST(BinarySearchTree):
         # We need to locate where to insert the new node by using dft. Then we
         # must rotate every node in the RedBlackBST. So rescurion is our approach
         # to implement this method.
-        
+        def _insert(pivot):
+            if node.val == pivot.val:
+                return pivot
+
+            pivot.children += 1
+            if node.val > pivot.val:
+                if not pivot.right:
+                    pivot.right = node
+                else:
+                    # NOTE: I made a mistake here when I write RedBlackBST
+                    pivot.right = _insert(pivot.right)
+            else:
+                if not pivot.left:
+                    pivot.left = node
+                else:
+                    # NOTE: I made a mistake here when I write RedBlackBST
+                    pivot.left = _insert(pivot.left)
+
+            if self.isRed(pivot.right) and not self.isRed(pivot.left):
+                pivot = self.rotateLeft(pivot)
+            if self.isRed(pivot.left) and self.isRed(pivot.left.left):
+                pivot = self.rotateRight(pivot)
+            if self.isRed(pivot.left) and self.isRed(pivot.right):
+                pivot.left.color = Color.BLACK
+                pivot.right.color = Color.BLACK
+                pivot.color = Color.RED
+
+            return pivot
+
+        if not isinstance(node, TreeNode):
+            raise TypeError('A TreeNode object is expected.')
+
+        if self.root is None:
+            self.root = node
+            self.root.color = Color.BLACK
+        else:
+            # The structure of the tree is modified. So _insert() should return a
+            # new tree.
+            self.root = _insert(self.root)
+
         return self.root.children
+
+
+    def prevOrderTraverse():
+        pass
 
 
 
