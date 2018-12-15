@@ -43,8 +43,15 @@ def build(numbers):
     root = None
     for n in iter(numbers):
         root = insert(root, TreeNode(n)) if root else TreeNode(n)
-
     return root
+
+
+def dft(root, ret=[]):
+    if root:
+        dft(root.left, ret)
+        ret.append(root.val)
+        dft(root.right, ret)
+    return ret
 
 
 
@@ -56,3 +63,4 @@ def recorverTree(root):
 
 if __name__ == '__main__':
     root = build([1,2,3,4,5])
+    print(dft(root))
