@@ -57,6 +57,15 @@ def dft(root, ret=[]):
 
 @time_it
 def recorverTree(root):
+    '''
+    I have spent too many hours to consider the cases which are beyond this problem itself.
+    I should stop to focus on this problem itself. We can get a sorted array when we
+    in-order traverse a binary search tree. Given the description of the problem, two
+    elements among this array should be swapped. These tow elements are either
+    larger than the elments after them or smaller than the elements before them.
+
+    Treat a binary search tree as a sorted arrary.
+    '''
     return []
 
 
