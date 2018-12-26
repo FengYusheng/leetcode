@@ -1,5 +1,9 @@
 # -*- coding: utf-8 -*-
 # http://www.cnblogs.com/AnnieKim/archive/2013/06/15/morristraversal.html
+# https://www.geeksforgeeks.org/inorder-tree-traversal-without-recursion-and-without-stack/
+# This problem help you understand what a binary search tree is and dfs.
+# You can treat a binary search tree as a sorted array.
+# This problem also reminds you to learn mirrors traversal.
 import sys
 import os
 import time

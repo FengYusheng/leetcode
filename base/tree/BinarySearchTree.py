@@ -67,6 +67,11 @@ class TreeNodeInRedBlackBST(TreeNode):
         self._color = color
 
 
+class ThreadedTreeNode(TreeNode):
+    def __init__(self, val):
+        super().__init__(val)
+
+
 class BinarySearchTree:
     def __init__(self, root):
         if isinstance(root, TreeNode):
@@ -352,6 +357,7 @@ class RedBlackBST(BinarySearchTree):
 
 
     def inOrderTraverse(self):
+        # Traversal means perfoming any actions on the node.
         def _inOrderTraverse(pivot, ret=[]):
             if pivot:
                 _inOrderTraverse(pivot.left)
