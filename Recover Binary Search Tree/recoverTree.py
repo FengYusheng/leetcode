@@ -77,6 +77,11 @@ def recorverTree(root):
     The "deep first traverse" method finds out the two error elements.
 
     Note: I don't know why my submission failed when I implmented this method with global variables.
+
+
+    Mirros Traversal
+    Traverse the tree as in order. The rightmost child's prev in current left subtree
+    is current node.
     '''
     def _dft(pivot, elements=[None, None, None]):
         # global prev, first, second

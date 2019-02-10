@@ -68,6 +68,10 @@ class TreeNodeInRedBlackBST(TreeNode):
 
 
 class ThreadedTreeNode(TreeNode):
+    """Threaded Binary Search Tree Node
+
+    
+    """
     def __init__(self, val):
         super().__init__(val)
 
